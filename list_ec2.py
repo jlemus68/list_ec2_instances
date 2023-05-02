@@ -1,6 +1,6 @@
 # This script will first list all EC2 instances across all regions, 
-# and for each instance it will print the instance ID, private IP, public IP and other instance info. 
-# For example, if an instance does not have a public IP or a private IP, the script will print "N/A" instead
+# and for each instance it will print the instance ID, private IP, and public IP. 
+# If an instance does not have a public IP or a private IP, the script will print "N/A" instead
 
 import boto3
 import csv
@@ -17,7 +17,7 @@ all_instances = []
 # Iterate over each region and list all instances
 for region_name in all_regions:
     print(f"Instances in {region_name}:")
-    print('_'*60)
+    print('='*60)
     ec2_region_client = boto3.client('ec2', region_name=region_name)
     reservations = ec2_region_client.describe_instances()['Reservations']
     for reservation in reservations:
@@ -41,14 +41,14 @@ for region_name in all_regions:
                 'Region': region_name
             }
             all_instances.append(instance_info)
-            print(f"Instance ID: {instance_id}")
-            print(f"Private IP: {private_ip}")
-            print(f"Public IP: {public_ip}")
-            print(f"Image ID (AMI): {image_id}")
-            print(f"Name: {name_tag}")
-            print(f"Instance Type: {instance_type}")
-            print(f"Instance current Status: {instance_id} is {instance_state}")
-            print('_'*60)
+            print(f"    Instance ID: {instance_id}")
+            print(f"    Private IP: {private_ip}")
+            print(f"    Public IP: {public_ip}")
+            print(f"    Image ID (AMI): {image_id}")
+            print(f"    Name: {name_tag}")
+            print(f"    Instance Type: {instance_type}")
+            print(f"    Instance current Status: {instance_id} is {instance_state}")
+            print('._'*30)
 
 # Write the instance information to a CSV file
 with open('ec2_instances.csv', mode='w') as csv_file:

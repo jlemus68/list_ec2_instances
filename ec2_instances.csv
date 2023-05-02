@@ -1,2 +1,5 @@
 Instance ID,Private IP,Public IP,Image ID (AMI),Name,Instance Type,Instance Status,Region
-i-0f26bf2e24cea9010,172.31.65.95,3.235.190.55,ami-02396cdd13e9a1257,N/A,t2.micro,running,us-east-1
+i-063a5c554d6797c8d,172.31.69.78,3.236.141.106,ami-02396cdd13e9a1257,test-virginia,t2.micro,running,us-east-1
+i-0a8d56d3d2b788f2d,172.31.65.37,34.238.191.154,ami-02396cdd13e9a1257,test-1-virginia,t2.micro,running,us-east-1
+i-08d219d5ff521c4d4,172.31.20.225,54.70.54.219,ami-009c5f630e96948cb,test-oregon,t2.micro,running,us-west-2
+i-04b4d012f28d8a338,172.31.23.115,52.88.63.124,ami-009c5f630e96948cb,test-1-oregon,t2.micro,running,us-west-2
