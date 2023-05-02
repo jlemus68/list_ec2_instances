@@ -55,5 +55,5 @@ Takes two numbers and returns the sum.
 
 ## Screenshots
 
-![Output Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![Output Screenshot](https://github.com/jlemus68/list_ec2_instances/blob/main/images/csv_output.png)
 
