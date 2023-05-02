@@ -1,0 +1,2 @@
+Instance ID,Private IP,Public IP,Image ID (AMI),Name,Instance Type,Instance Status,Region
+i-0f26bf2e24cea9010,172.31.65.95,3.235.190.55,ami-02396cdd13e9a1257,N/A,t2.micro,running,us-east-1
