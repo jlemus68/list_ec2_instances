@@ -24,6 +24,7 @@ for region_name in all_regions:
         for instance in reservation['Instances']:
             instance_id = instance['InstanceId']
             instance_type = instance.get('InstanceType', 'N/A')
+            platform = instance.get('Platform', 'N/A')
             instance_state = instance.get('State', {}).get('Name', 'N/A')
             private_ip = instance.get('PrivateIpAddress', 'N/A')
             public_ip = instance.get('PublicIpAddress', 'N/A')
@@ -37,6 +38,7 @@ for region_name in all_regions:
                 'Image ID (AMI)': image_id,
                 'Name': name_tag,
                 'Instance Type': instance_type,
+                'Platform' : platform,
                 'Instance Status': instance_state,
                 'Region': region_name
             }
@@ -47,12 +49,13 @@ for region_name in all_regions:
             print(f"    Image ID (AMI): {image_id}")
             print(f"    Name: {name_tag}")
             print(f"    Instance Type: {instance_type}")
+            print(f"    Platform: {platform}")
             print(f"    Instance current Status: {instance_id} is {instance_state}")
             print('._'*30)
 
 # Write the instance information to a CSV file
 with open('ec2_instances.csv', mode='w') as csv_file:
-    fieldnames = ['Instance ID', 'Private IP', 'Public IP', 'Image ID (AMI)', 'Name', 'Instance Type', 'Instance Status', 'Region']
+    fieldnames = ['Instance ID', 'Private IP', 'Public IP', 'Image ID (AMI)', 'Name', 'Instance Type', 'Platform', 'Instance Status', 'Region']
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
     writer.writeheader()
     for instance_info in all_instances:
