@@ -13,7 +13,7 @@ pipeline {
         stage('checkout') {
             steps {
                  script{
-                        // dir("terraform")
+                        dir("terraform")
                         {
                             git "https://github.com/yeshwanthlm/Terraform-Jenkins.git"
                         }
@@ -26,12 +26,12 @@ pipeline {
                 sh '''
                 curl -LO https://releases.hashicorp.com/terraform/0.15.5/terraform_0.15.5_linux_amd64.zip
                 unzip -o terraform_0.15.5_linux_amd64.zip
-                sudo mv terraform /usr/local/bin/
+                sudo cp -r terraform /usr/local/bin/
                 terraform --version
                 '''
             }
         }
-
+        
         stage('Plan') {
             steps {
                 sh 'pwd;cd terraform/ ; terraform init'
