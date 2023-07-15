@@ -13,7 +13,7 @@ pipeline {
         stage('checkout') {
             steps {
                  script{
-                        dir("terraform")
+                        // dir("terraform")
                         {
                             git "https://github.com/yeshwanthlm/Terraform-Jenkins.git"
                         }
@@ -31,7 +31,7 @@ pipeline {
                 '''
             }
         }
-        
+
         stage('Plan') {
             steps {
                 sh 'pwd;cd terraform/ ; terraform init'
