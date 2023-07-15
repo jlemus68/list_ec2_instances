@@ -21,6 +21,15 @@ pipeline {
                 }
             }
 
+        stage('Install Terraform') {
+            steps {
+                sh 'wget https://releases.hashicorp.com/terraform/0.15.5/terraform_0.15.5_linux_amd64.zip'
+                sh 'unzip terraform_0.15.5_linux_amd64.zip'
+                sh 'mv terraform /usr/local/bin/'
+                sh 'terraform --version'
+            }
+        }
+
         stage('Plan') {
             steps {
                 sh 'pwd;cd ./terraform/ ; terraform init'
