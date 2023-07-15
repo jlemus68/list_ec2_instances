@@ -24,13 +24,13 @@ pipeline {
         stage('Install Terraform') {
             steps {
                 sh '''
-                wget https://releases.hashicorp.com/terraform/0.15.5/terraform_0.15.5_linux_amd64.zip
+                curl -LO https://releases.hashicorp.com/terraform/0.15.5/terraform_0.15.5_linux_amd64.zip
                 unzip terraform_0.15.5_linux_amd64.zip
                 sudo mv terraform /usr/local/bin/
                 terraform --version
                 '''
             }
-        }
+        }        
         
         stage('Plan') {
             steps {
