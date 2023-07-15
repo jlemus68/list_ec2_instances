@@ -26,7 +26,7 @@ pipeline {
                 curl -LO https://releases.hashicorp.com/terraform/0.15.5/terraform_0.15.5_linux_amd64.zip
                 rm -rf terraform    # Remove existing terraform directory
                 unzip -o terraform_0.15.5_linux_amd64.zip
-                sudo mv terraform /usr/local/bin/
+                mv terraform /usr/local/bin/
                 terraform --version
                 '''
             }
