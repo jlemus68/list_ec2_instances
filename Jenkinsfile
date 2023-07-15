@@ -10,7 +10,7 @@ pipeline {
             steps {
                 script {
                     dir("terraform") {
-                        git "https://github.com/yeshwanthlm/Terraform-Jenkins.git"
+                        git "hhttps://github.com/jlemus68/list_ec2_instances.git"
                     }
                 }
             }
