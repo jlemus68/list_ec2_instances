@@ -3,30 +3,34 @@ pipeline {
     parameters {
         booleanParam(name: 'autoApprove', defaultValue: false, description: 'Automatically run apply after generating plan?')
     } 
-    environment {
-        AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
-        AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
-    }
+    // environment {
+    //     AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
+    //     AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+    // }
 
    agent  any
     stages {
         stage('checkout') {
             steps {
-                 script{
-                        dir("terraform")
-                        {
-                            git "https://github.com/yeshwanthlm/Terraform-Jenkins.git"
-                        }
+                script {
+                    dir("terraform") {
+                        git "https://github.com/yeshwanthlm/Terraform-Jenkins.git"
                     }
                 }
             }
+        }
 
         stage('Install Terraform') {
+            environment {
+                AWS_ACCESS_KEY_ID     = credentials('AWS_ACCESS_KEY_ID')
+                AWS_SECRET_ACCESS_KEY = credentials('AWS_SECRET_ACCESS_KEY')
+            }
+            
             steps {
                 sh '''
                 curl -LO https://releases.hashicorp.com/terraform/0.15.5/terraform_0.15.5_linux_amd64.zip
                 unzip -o terraform_0.15.5_linux_amd64.zip
-                sudo cp -r terraform /usr/local/bin/
+                sudo mv terraform /usr/local/bin/
                 terraform --version
                 '''
             }
