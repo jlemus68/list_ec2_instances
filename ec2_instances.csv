@@ -1,4 +1,1 @@
 Instance ID,Private IP,Public IP,Image ID (AMI),Name,Instance Type,Platform,Instance Status,Region
-i-07d3e85f80443878f,N/A,N/A,ami-0bde1eb2c18cb2abe,windows-test,t2.micro,windows,terminated,us-east-1
-i-07dc9d8b66da3b712,N/A,N/A,ami-02396cdd13e9a1257,Linux-test,t2.micro,N/A,terminated,us-east-1
-i-091068ba0f6c052fb,N/A,N/A,ami-007855ac798b5175e,ubuntu-test,t2.micro,N/A,terminated,us-east-1
